@@ -1,6 +1,5 @@
 from random import randint
 
-from agent import *
 
 
 WIN = 1
@@ -13,7 +12,7 @@ WILD = 3
 
 
 def payoff(agent):
-    active_strategy = agent.strategy()
+    active_strategy = agent.strategy
 
     outcome = randint(0, 1)
     reward = 0
