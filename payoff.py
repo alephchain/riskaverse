@@ -1,7 +1,6 @@
 from random import randint
 
 
-
 WIN = 1
 LOSE = 0
 
@@ -33,7 +32,7 @@ def payoff(agent):
                 reward = 0
             else:
                 reward = 10
-    else:
+    elif outcome == LOSE:
         if active_strategy == RISK_AVERSE:
             reward_outcome = randint(0, 1)
             if reward_outcome == 0:

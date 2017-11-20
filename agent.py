@@ -1,7 +1,8 @@
 
 class Agent:
 
-    def __init__(self, strategy):
+    def __init__(self, idx, strategy):
+        self._id = idx
         self.score = 0
         self.strategy = strategy
 

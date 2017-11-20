@@ -1,9 +1,11 @@
+from random import randint
+
 from agent import *
 from payoff import *
 
-agent = Agent(RISK_AVERSE)
-
-payoff(agent)
-
-print agent.get_score()
+agents = []
+for i in range(400):
+    agents.append(Agent(i, randint(0, 3)))
+    payoff(agents[i])
+    print agents[i].get_score()
 
