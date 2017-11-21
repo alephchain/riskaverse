@@ -1,13 +1,5 @@
 from random import randint
-
-
-WIN = 1
-LOSE = 0
-
-RISK_AVERSE = 0
-RISK_TAKING = 1
-CONSERVATIVE = 2
-WILD = 3
+from constants import *
 
 
 def payoff(agent):
