@@ -1,4 +1,4 @@
-from constants import *
+from utility import *
 
 
 class Agent:
@@ -15,14 +15,4 @@ class Agent:
         return self.score
 
     def strategy_label(self):
-        if self.strategy == RISK_AVERSE:
-            return "RISK_AVERSE"
-
-        if self.strategy == RISK_TAKING:
-            return "RISK_TAKING"
-
-        if self.strategy == CONSERVATIVE:
-            return "CONSERVATIVE"
-
-        if self.strategy == WILD:
-            return "WILD"
+        return get_strategy(self.strategy)
