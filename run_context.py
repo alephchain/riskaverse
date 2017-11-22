@@ -18,9 +18,9 @@ for i in range(steps * max_agents):
 
 for i in range(max_agents):
     print agents[i].strategy_label(), agents[i].get_score()
-    with open("C:\Users\owner\PycharmProjects\riskaverse\data\strategy.csv", 'wb') as f:
+    with open(r'C:\Users\owner\PycharmProjects\riskaverse\data\strategy.csv', 'wb') as f:
         writer = csv.writer(f, delimiter=',')
 
-        writer.writenow(agents[i].strategy_label(), agents[i].get_score())
+        writer.writerow([agents[i].strategy_label(), agents[i].get_score()])
 
 print "Agents: " + str(max_agents), "Steps: " + str(steps)
