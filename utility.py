@@ -11,5 +11,5 @@ def get_strategy(strategy):
     if strategy == CONSERVATIVE:
         return "CONSERVATIVE"
 
-    if strategy == WILD:
-        return "WILD"
+    if strategy == BUY_AND_HOLD:
+        return "BUY_AND_HOLD"

@@ -18,7 +18,7 @@ def payoff(agent):
                 reward = 10
         if active_strategy == CONSERVATIVE:
             reward = 5
-        if active_strategy == WILD:
+        if active_strategy == BUY_AND_HOLD:
             reward_outcome = randint(0, 1)
             if reward_outcome == 0:
                 reward = 0
@@ -35,7 +35,7 @@ def payoff(agent):
             reward = -5
         if active_strategy == CONSERVATIVE:
             reward = -5
-        if active_strategy == WILD:
+        if active_strategy == BUY_AND_HOLD:
             reward_outcome = randint(0, 1)
             if reward_outcome == 0:
                 reward = 0
