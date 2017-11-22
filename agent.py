@@ -7,16 +7,22 @@ class Agent:
         self._id = idx
         self.score = []
         self.strategy = strategy
+        self.returns = 1000
 
     def set_score(self, payoff):
-        self.score.append(payoff)
+        new_return = self.returns + payoff
+        if new_return < 0:
+            self.score.append(0)
+            self.returns = 0
+        else:
+            self.score.append(payoff)
+            self.returns = new_return
 
     def get_score(self):
-        sum_score = 0
-        for i in range(len(self.score)-1):
-            sum_score += self.score[i]
-
-        return sum_score
+        return self.returns
 
     def strategy_label(self):
         return get_strategy(self.strategy)
+
+    def is_active(self):
+        return self.returns > 0

@@ -5,18 +5,18 @@ import csv
 from agent import *
 from payoff import *
 
-max_agents = 4000
-steps = (2 ** 16)
+max_agents = 400
 
 agents = []
 for i in range(max_agents):
     agents.append(Agent(i, i % 4))
 
+steps = (2 ** 16)
 for i in range(steps * max_agents):
     agent_idx = i % max_agents
     payoff(agents[agent_idx])
 
-with open(r'C:\Users\owner\PycharmProjects\riskaverse\data\strategy.csv', 'wb') as f:
+with open(r'C:\Users\gutzofter\PycharmProjects\riskaverse\data\strategy.csv', 'wb') as f:
     writer = csv.writer(f, delimiter=',')
     writer.writerow(['strategy', 'score'])
 
