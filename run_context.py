@@ -1,16 +1,26 @@
 from random import randint
 from constants import *
+import csv
+
 from agent import *
 from payoff import *
 
-agents = []
-for i in range(400):
-    agents.append(Agent(i, randint(0, 3)))
+max_agents = 400
 
-for i in range(2 ** 16):
-    agent_idx = i % 400
+agents = []
+for i in range(max_agents):
+    agents.append(Agent(i, i % 4))
+
+steps = (2 ** 16)
+for i in range(steps * max_agents):
+    agent_idx = i % max_agents
     payoff(agents[agent_idx])
 
-    active_strategy = agents[agent_idx].strategy
+for i in range(max_agents):
+    print agents[i].strategy_label(), agents[i].get_score()
+    with open("C:\Users\owner\PycharmProjects\riskaverse\data\strategy.csv", 'wb') as f:
+        writer = csv.writer(f, delimiter=',')
 
-    print agents[agent_idx].strategy_label(), agents[agent_idx].get_score()
+        writer.writenow(agents[i].strategy_label(), agents[i].get_score())
+
+print "Agents: " + str(max_agents), "Steps: " + str(steps)
