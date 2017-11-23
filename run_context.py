@@ -21,7 +21,7 @@ with open(r'C:\Users\gutzofter\PycharmProjects\riskaverse\data\strategy.csv', 'w
     writer.writerow(['strategy', 'score'])
 
     for i in range(max_agents):
-        print agents[i].strategy_label(), agents[i].get_score()
+        # print agents[i].strategy_label(), agents[i].get_score()
         writer.writerow([agents[i].strategy_label(), agents[i].get_score()])
 
 print "Agents: " + str(max_agents), "Steps: " + str(steps)

@@ -10,6 +10,7 @@ class Agent:
         self.returns = 1000
 
     def set_score(self, payoff):
+        self.returns -= 5
         new_return = self.returns + payoff
         if new_return < 0:
             self.score.append(0)
