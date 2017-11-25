@@ -8,7 +8,7 @@ from payoff import *
 max_agents = 1000
 strategies = 4
 odds_calc = 4
-steps = (2 ** 12)
+steps = (2 ** 10)
 
 agents = []
 
@@ -25,10 +25,10 @@ for i in range(steps * max_agents * odds_calc * strategies):
 
 with open(r'C:\Users\gutzofter\PycharmProjects\riskaverse\data\strategy.csv', 'wb') as f:
     writer = csv.writer(f, delimiter=',')
-    writer.writerow(['strategy', 'age', 'odds', 'score'])
+    writer.writerow(['index', 'strategy', 'age', 'odds', 'score'])
 
     for i in range(max_agents * odds_calc * strategies):
         print agents[i].idx, agents[i].get_age(), agents[i].strategy_label(), agents[i].odds_label(), agents[i].get_score()
-        writer.writerow([agents[i].strategy_label(), agents[i].get_age(), agents[i].odds_label(), agents[i].get_score()])
+        writer.writerow([agents[i].idx, agents[i].strategy_label(), agents[i].get_age(), agents[i].odds_label(), agents[i].get_score()])
 
 print "Agents: " + str(max_agents * odds_calc * strategies), "Steps: " + str(steps)
