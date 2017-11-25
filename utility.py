@@ -13,3 +13,15 @@ def get_strategy(strategy):
 
     if strategy == BUY_AND_HOLD:
         return "BUY_AND_HOLD"
+
+
+def get_odds(odds):
+    if odds == THIRTY_THREE:
+        return "THIRTY_THREE"
+    if odds == FIFTY:
+        return "FIFTY"
+    if odds == SEVENTY_FIVE:
+        return "SEVENTY_FIVE"
+    if odds == RANDOM:
+        return "RANDOM"
+
