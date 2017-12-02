@@ -31,4 +31,12 @@ with open(r'C:\Users\gutzofter\PycharmProjects\riskaverse\data\strategy.csv', 'w
         print agents[i].idx, agents[i].get_age(), agents[i].strategy_label(), agents[i].odds_label(), agents[i].get_score()
         writer.writerow([agents[i].idx, agents[i].strategy_label(), agents[i].get_age(), agents[i].odds_label(), agents[i].get_score()])
 
+with open(r'C:\Users\gutzofter\PycharmProjects\riskaverse\data\agents.csv', 'wb') as f:
+    writer = csv.writer(f, delimiter=',')
+    writer.writerow(['index', 'strategy', 'age', 'odds', 'score', 'returns'])
+
+    for agent in agents:
+        for score in agent.get_sequence():
+            writer.writerow([agent.idx, agent.strategy_label(), agent.get_age(), agent.odds_label(), agent.get_score(), score])
+
 print "Agents: " + str(max_agents * odds_calc * strategies), "Steps: " + str(steps)
