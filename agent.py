@@ -8,7 +8,7 @@ class Agent:
         self.score = []
         self.strategy = strategy
         self.odds = odds
-        self.returns = 1000
+        self.returns = START_RETURNS
 
     def set_score(self, payoff):
         new_return = self.returns + payoff
@@ -21,10 +21,10 @@ class Agent:
 
     def get_age(self):
         age = 0
-        sum_score = 1000
+        sum_score = START_RETURNS
         for i in self.score:
             age += 1
-            sum_score += self.score[i]
+            sum_score += i
             if sum_score == 0:
                 return age
 
