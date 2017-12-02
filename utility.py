@@ -16,8 +16,8 @@ def get_strategy(strategy):
 
 
 def get_odds(odds):
-    if odds == THIRTY_THREE:
-        return "THIRTY_THREE"
+    if odds == TWENTY_FIVE:
+        return "TWENTY_FIVE"
     if odds == FIFTY:
         return "FIFTY"
     if odds == SEVENTY_FIVE:

@@ -5,7 +5,7 @@ import csv
 from agent import *
 from payoff import *
 
-max_agents = 10
+max_agents = 1000
 strategies = 4
 odds_calc = 4
 steps = (2 ** 10)
