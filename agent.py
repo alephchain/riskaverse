@@ -41,3 +41,6 @@ class Agent:
 
     def odds_label(self):
         return get_odds(self.odds)
+
+    def get_sequence(self):
+        return self.score
