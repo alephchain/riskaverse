@@ -8,7 +8,8 @@ from payoff import *
 max_agents = 1000
 strategies = 4
 odds_calc = 4
-steps = (2 ** 10)
+steps = (2 ** 12)
+
 
 agents = []
 
@@ -23,20 +24,24 @@ for i in range(steps * max_agents * odds_calc * strategies):
     agent_idx = i % (max_agents * odds_calc * strategies)
     payoff(agents[agent_idx])
 
-with open(r'C:\Users\gutzofter\PycharmProjects\riskaverse\data\strategy.csv', 'wb') as f:
+with open(r'C:\Users\owner\PycharmProjects\riskaverse\data\strategy.csv', 'wb') as f:
     writer = csv.writer(f, delimiter=',')
     writer.writerow(['index', 'strategy', 'age', 'odds', 'score'])
 
     for i in range(max_agents * odds_calc * strategies):
-        print agents[i].idx, agents[i].get_age(), agents[i].strategy_label(), agents[i].odds_label(), agents[i].get_score()
-        writer.writerow([agents[i].idx, agents[i].strategy_label(), agents[i].get_age(), agents[i].odds_label(), agents[i].get_score()])
+        print agents[i].idx, agents[i].get_age(), agents[i].strategy_label(), agents[i].odds_label(), agents[
+            i].get_return()
+        writer.writerow([agents[i].idx, agents[i].strategy_label(), agents[i].get_age(), agents[i].odds_label(),
+                         agents[i].get_return()])
 
-with open(r'C:\Users\gutzofter\PycharmProjects\riskaverse\data\agents.csv', 'wb') as f:
+with open(r'C:\Users\owner\PycharmProjects\riskaverse\data\agents.csv', 'wb') as f:
     writer = csv.writer(f, delimiter=',')
-    writer.writerow(['index', 'strategy', 'age', 'odds', 'score', 'returns'])
+    writer.writerow(['index', 'strategy', 'age', 'odds', 'returns', 'seq', 'score'])
 
     for agent in agents:
-        for score in agent.get_sequence():
-            writer.writerow([agent.idx, agent.strategy_label(), agent.get_age(), agent.odds_label(), agent.get_score(), score])
+        seq = 0
+        for score in agent.get_score():
+            writer.writerow([agent.idx, agent.strategy_label(), agent.get_age(), agent.odds_label(), agent.get_return(), seq, score])
+            seq += 1
 
 print "Agents: " + str(max_agents * odds_calc * strategies), "Steps: " + str(steps)

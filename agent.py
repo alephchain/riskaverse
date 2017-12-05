@@ -30,7 +30,7 @@ class Agent:
 
         return age
 
-    def get_score(self):
+    def get_return(self):
         return self.returns
 
     def strategy_label(self):
@@ -42,5 +42,5 @@ class Agent:
     def odds_label(self):
         return get_odds(self.odds)
 
-    def get_sequence(self):
+    def get_score(self):
         return self.score

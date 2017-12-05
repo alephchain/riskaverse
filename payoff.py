@@ -49,7 +49,7 @@ def payoff(agent):
 
 
 def outcomes(odds):
-    percentage = randint(0, 2)
+    percentage = randint(0, 3)
 
     if odds == TWENTY_FIVE:
         if percentage == 0:
